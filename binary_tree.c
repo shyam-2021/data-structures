@@ -25,6 +25,34 @@ struct node *insert(int x,struct node *t)
     t->right=insert(x,t->right);
     return t;
 } 
+struct node *delete(struct node *t,int x)
+{
+    struct node*q;
+    if(t==NULL)
+    return NULL;
+    if(x<t->data)
+    t->left=delete(t->left,x);
+    else if(x>t->data)
+    t->right=delete(t->right,x);
+    else
+    {
+        if((t->left==NULL)&&(t->right==NULL))
+        return NULL;
+        else if((t->left!=NULL)&&(t->right==NULL))
+        return(t->left);
+        else if((t->left==NULL)&&(t->right!=NULL))
+        return(t->right);
+        else
+        {
+            q=t->right;
+            while(q->left!=NULL)
+            q=q->left;
+            t->data=q->data;
+            t->right=delete(t->right,q->data);
+        }
+    }
+    return t;
+} 
 void main()
 {
   struct node *root=NULL;
@@ -32,4 +60,5 @@ void main()
    root=insert(44,root);
    root=insert(45,root);
    root=insert(46,root);
+   root=delete(root,43); 
 }
