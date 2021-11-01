@@ -59,7 +59,7 @@ int search(struct node*t,int x)
     return -1;
     if(x==t->data)
     {
-        printf("\nfound");
+        printf("\nfound:%d",t->data);
         return 1;
     } 
     else if(x<t->data)
@@ -67,6 +67,24 @@ int search(struct node*t,int x)
     
     else
     search(t->right,x);
+}
+int min (struct node*t)
+{
+    if (t==NULL)
+        return-1;
+    while (t->left!=NULL)
+        t=t->left;
+        printf(" min:%d",t->data);
+        return (t->data);
+}
+int max (struct node*t)
+{
+    if (t==NULL)
+        return-1;
+    while (t->right!=NULL)
+        t=t->right;
+        printf(" max:%d",t->data);
+        return (t->data);
 }
 void inorder(struct node *t)
 {
@@ -91,5 +109,6 @@ void main()
    root=delete(root,43);
    inorder(root); 
    search(root,44);
-    
+   min(root);
+   max(root);
 }
