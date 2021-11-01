@@ -1,0 +1,33 @@
+struct node
+{
+  int data
+  struct node *left;         //stucture declaration
+  struct node *right;
+
+ };
+ struct node* create(int x,struct node*l,struct node*r)         //create 
+ {
+ struct node*t1;
+ }
+ struct  node*insert(int x,struct node*t)           //insert 
+ {
+ }
+ struct node*delete(struct node*t,int x)    //delete 
+ {
+ }
+ int search (struct node*t,int x) //search 
+ {
+ }
+ int max();
+ {
+ }
+ int min();
+ {
+ }
+ void inorder(struct node*t) //inorder 
+ {
+ }
+ void main()    ///main
+ { 
+ stuct node*root=null;
+ }
