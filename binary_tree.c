@@ -53,6 +53,33 @@ struct node *delete(struct node *t,int x)
     }
     return t;
 } 
+int search(struct node*t,int x)
+{
+    if(t==NULL)
+    return -1;
+    if(x==t->data)
+    {
+        printf("\nfound");
+        return 1;
+    } 
+    else if(x<t->data)
+    search(t->left,x);
+    
+    else
+    search(t->right,x);
+}
+void inorder(struct node *t)
+{
+    if(t==NULL)
+    return; 
+    else
+    {
+        inorder(t->left);
+        printf("%d...",t->data);
+        inorder(t->right);
+        
+    }
+}
 void main()
 {
   struct node *root=NULL;
@@ -60,5 +87,9 @@ void main()
    root=insert(44,root);
    root=insert(45,root);
    root=insert(46,root);
-   root=delete(root,43); 
+   inorder(root);
+   root=delete(root,43);
+   inorder(root); 
+   search(root,44);
+    
 }
